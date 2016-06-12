@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - test@localhost" uuid="160e3ea3-2814-46f2-b322-ce8983232f26">
+    <database-info product="MySQL" version="5.5.49-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="test"/>
+      <table id="2" parent="1" name="Favorites"/>
+      <table id="3" parent="1" name="Feedback"/>
+      <table id="4" parent="1" name="POI"/>
+      <table id="5" parent="1" name="Rates"/>
+      <table id="6" parent="1" name="Trust"/>
+      <table id="7" parent="1" name="Users"/>
+      <table id="8" parent="1" name="Visit"/>
+      <table id="9" parent="1" name="VisitEvent"/>
+      <table id="10" parent="1" name="hasKeywords"/>
+      <column id="11" parent="2" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="12" parent="2" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="13" parent="2" name="pid">
+        <columns>pid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="14" parent="2" name="PRIMARY">
+        <columns>login
+pid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="15" parent="2" name="Favorites_ibfk_1">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="16" parent="2" name="Favorites_ibfk_2">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="17" parent="3" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="18" parent="3" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="19" parent="3" name="text">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="20" parent="3" name="fbdate">
+        <data-type>date</data-type>
+      </column>
+      <column id="21" parent="3" name="score">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="22" parent="3" name="login">
+        <columns>login</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="23" parent="3" name="PRIMARY">
+        <columns>pid
+login</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="24" parent="3" name="Feedback_ibfk_1">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="25" parent="3" name="Feedback_ibfk_2">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="26" parent="4" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="27" parent="4" name="name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="28" parent="4" name="category">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="29" parent="4" name="address">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="30" parent="4" name="price">
+        <data-type>float</data-type>
+      </column>
+      <column id="31" parent="4" name="url">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="32" parent="4" name="phone">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="33" parent="4" name="establish_year">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="34" parent="4" name="operation_hours">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="35" parent="4" name="name">
+        <columns>name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="36" parent="4" name="name">
+        <columns>name</columns>
+        <underlying-index>name</underlying-index>
+      </key>
+      <key id="37" parent="4" name="PRIMARY">
+        <columns>pid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="38" parent="5" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="39" parent="5" name="rated_login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="40" parent="5" name="rated_pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="41" parent="5" name="rating">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="42" parent="5" name="rated_login">
+        <columns>rated_login
+rated_pid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="43" parent="5" name="PRIMARY">
+        <columns>login
+rated_login
+rated_pid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="44" parent="5" name="Rates_ibfk_1">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="45" parent="5" name="Rates_ibfk_2">
+        <columns>rated_login
+rated_pid</columns>
+        <ref-key>test.Feedback(login,pid)</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="46" parent="6" name="login1">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="47" parent="6" name="login2">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="48" parent="6" name="is_trusted">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <index id="49" parent="6" name="login2">
+        <columns>login2</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="50" parent="6" name="PRIMARY">
+        <columns>login1
+login2</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="51" parent="6" name="Trust_ibfk_1">
+        <columns>login1</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="52" parent="6" name="Trust_ibfk_2">
+        <columns>login2</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="53" parent="7" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="54" parent="7" name="name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="55" parent="7" name="psw">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="56" parent="7" name="address">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="57" parent="7" name="phone">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="58" parent="7" name="is_admin">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="59" parent="7" name="PRIMARY">
+        <columns>login</columns>
+        <primary>1</primary>
+      </key>
+      <column id="60" parent="8" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="61" parent="8" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="62" parent="8" name="vid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="63" parent="8" name="pid">
+        <columns>pid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="64" parent="8" name="vid">
+        <columns>vid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="65" parent="8" name="PRIMARY">
+        <columns>login
+pid
+vid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="66" parent="8" name="Visit_ibfk_1">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="67" parent="8" name="Visit_ibfk_2">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="68" parent="8" name="Visit_ibfk_3">
+        <columns>vid</columns>
+        <ref-key>~.VisitEvent.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="69" parent="9" name="vid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="70" parent="9" name="cost">
+        <data-type>float</data-type>
+      </column>
+      <column id="71" parent="9" name="number_of_heads">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="72" parent="9" name="visit_date">
+        <data-type>date</data-type>
+      </column>
+      <key id="73" parent="9" name="PRIMARY">
+        <columns>vid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="74" parent="10" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="75" parent="10" name="word">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <index id="76" parent="10" name="word">
+        <columns>word</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="77" parent="10" name="PRIMARY">
+        <columns>pid
+word</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="78" parent="10" name="hasKeywords_ibfk_1">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+  <data-source name="MySQL - acmdb04@georgia.eng.utah.edu" uuid="09292774-0ec0-454c-8554-f813601638f6">
+    <database-info product="MySQL" version="5.1.73-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="acmdb04"/>
+      <table id="2" parent="1" name="Favorites"/>
+      <table id="3" parent="1" name="Feedback"/>
+      <table id="4" parent="1" name="POI"/>
+      <table id="5" parent="1" name="Rates"/>
+      <table id="6" parent="1" name="Trust"/>
+      <table id="7" parent="1" name="Users"/>
+      <table id="8" parent="1" name="Visit"/>
+      <table id="9" parent="1" name="VisitEvent"/>
+      <table id="10" parent="1" name="hasKeywords"/>
+      <column id="11" parent="2" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="12" parent="2" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="13" parent="2" name="pid">
+        <columns>pid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="14" parent="2" name="PRIMARY">
+        <columns>login
+pid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="15" parent="2" name="Favorites_ibfk_1">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="16" parent="2" name="Favorites_ibfk_2">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="17" parent="3" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="18" parent="3" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="19" parent="3" name="text">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="20" parent="3" name="fbdate">
+        <data-type>date</data-type>
+      </column>
+      <column id="21" parent="3" name="score">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="22" parent="3" name="login">
+        <columns>login</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="23" parent="3" name="PRIMARY">
+        <columns>pid
+login</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="24" parent="3" name="Feedback_ibfk_1">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="25" parent="3" name="Feedback_ibfk_2">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="26" parent="4" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="27" parent="4" name="name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="28" parent="4" name="category">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="29" parent="4" name="address">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="30" parent="4" name="price">
+        <data-type>float</data-type>
+      </column>
+      <column id="31" parent="4" name="url">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="32" parent="4" name="phone">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="33" parent="4" name="establish_year">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="34" parent="4" name="operation_hours">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <index id="35" parent="4" name="name">
+        <columns>name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="36" parent="4" name="name">
+        <columns>name</columns>
+        <underlying-index>name</underlying-index>
+      </key>
+      <key id="37" parent="4" name="PRIMARY">
+        <columns>pid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="38" parent="5" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="39" parent="5" name="rated_login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="40" parent="5" name="rated_pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="41" parent="5" name="rating">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="42" parent="5" name="rated_login">
+        <columns>rated_login
+rated_pid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="43" parent="5" name="PRIMARY">
+        <columns>login
+rated_login
+rated_pid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="44" parent="5" name="Rates_ibfk_1">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="45" parent="5" name="Rates_ibfk_2">
+        <columns>rated_login
+rated_pid</columns>
+        <ref-key>acmdb04.Feedback(login,pid)</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="46" parent="6" name="login1">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="47" parent="6" name="login2">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="48" parent="6" name="is_trusted">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <index id="49" parent="6" name="login2">
+        <columns>login2</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="50" parent="6" name="PRIMARY">
+        <columns>login1
+login2</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="51" parent="6" name="Trust_ibfk_1">
+        <columns>login1</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="52" parent="6" name="Trust_ibfk_2">
+        <columns>login2</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="53" parent="7" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="54" parent="7" name="name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="55" parent="7" name="psw">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="56" parent="7" name="address">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="57" parent="7" name="phone">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="58" parent="7" name="is_admin">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="59" parent="7" name="PRIMARY">
+        <columns>login</columns>
+        <primary>1</primary>
+      </key>
+      <column id="60" parent="8" name="login">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="61" parent="8" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="62" parent="8" name="vid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="63" parent="8" name="pid">
+        <columns>pid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="64" parent="8" name="vid">
+        <columns>vid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="65" parent="8" name="PRIMARY">
+        <columns>login
+pid
+vid</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="66" parent="8" name="Visit_ibfk_1">
+        <columns>login</columns>
+        <ref-key>~.Users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="67" parent="8" name="Visit_ibfk_2">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="68" parent="8" name="Visit_ibfk_3">
+        <columns>vid</columns>
+        <ref-key>~.VisitEvent.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="69" parent="9" name="vid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="70" parent="9" name="cost">
+        <data-type>float</data-type>
+      </column>
+      <column id="71" parent="9" name="number_of_heads">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="72" parent="9" name="visit_date">
+        <data-type>date</data-type>
+      </column>
+      <key id="73" parent="9" name="PRIMARY">
+        <columns>vid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="74" parent="10" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="75" parent="10" name="word">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <key id="76" parent="10" name="PRIMARY">
+        <columns>pid
+word</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="77" parent="10" name="hasKeywords_ibfk_1">
+        <columns>pid</columns>
+        <ref-key>~.POI.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
